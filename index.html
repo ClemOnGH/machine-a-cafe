@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>Machine à café</title>
+    </head>
+    <body>
+        <div id="terminalOverlay">
+            <div class="terminal_box top-left-1">
+                <pre>> Initializing terminal session<br />> Connection established with remote host at 10.54.67.129:8080<br />> Attempting authorization bypass...<br />> [SUCCESS] Access level [ROOT] granted<br /><br />> Executing script: ./sys_diagnostics.py<br /><br />import sys<br />from porthack.net import sequencer.exe<br><br>def override_sequence(address):<br>   sequence = []<br>   for i in range(0x00, 0xFF):<br>     sequence.append(hex(i ^ 0x1F))<br>  return sequence<br><br>> porthack: Memory mapping address @ 0x402A3C7B<br>> porthack: Applying sequence overrides...<br>> porthack: Loading unauthorized modules... [WARNING]<br>> porthack: sequencer ready with {7} warnings</pre>
+            </div>
+        </div>
+    </body>
+</html>
