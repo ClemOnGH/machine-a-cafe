@@ -1,0 +1,37 @@
+{
+    "lines": [
+        ["Initializing terminal session", 1],
+        ["Connection established with remote host at 10.54.67.129:8080", 0.1],
+        ["Attempting authorization bypass...", 1.2],
+        ["Access level [ROOT] granted", 0.1],
+        ["Executing script: ./sys_diagnostics.py <br>", 0.25],
+        ["import sys", 0.05],
+        ["from porthack.net import sequencer<br>", 0.05],
+        ["def override_sequence(address):", 0.05],
+        [" sequence = []", 0.05],
+        ["   for i in range(0x00, 0xFF):", 0.05],
+        ["     sequence.append(hex(i ^ 0x1F))", 0.05],
+        ["   return sequence<br>", 0.05],
+        ["porthack: Memory mapping address @ 0x402A3C7B", 0.5],
+        ["porthack: Applying sequence overrides...", 0.8],
+        ["porthack: Loading unauthorized modules... [WARNING]", 0.05],
+        ["porthack: sequencer ready with {7} warnings", "0.5"]
+    ],
+    "loading": [
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6],
+        ["", 0.6]
+    ]
+}
