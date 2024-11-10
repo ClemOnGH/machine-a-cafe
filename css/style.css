@@ -21,23 +21,43 @@
     padding-right: 15px;
 }
 
-.terminal_box {
+#terminal_title {
+    margin-top: 15px;
+    box-shadow: 0 0 5px rgba(255, 78, 95, 0.6), 0 0 30px rgba(255, 78, 95, 0.2);
+    width: 100%;
+    background-color: #ff4e5f;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    padding: 4px;
+    height: 20px;
+    transition: width 0.25s, box-shadow 0.25s;
+}
+
+#terminal-box {
+    display: none;
     border: 2px solid #ff4e5f;
     box-shadow: 0 0 5px rgba(255, 78, 95, 0.6), inset 0 0 5px rgba(255, 78, 95, 0.6), 0 0 30px rgba(255, 78, 95, 0.2),
         inset 0 0 30px rgba(255, 78, 95, 0.2);
     scrollbar-width: none;
     pointer-events: none;
+    transition: height 0.5s, width 0.25s, padding 0.25s, border 0.25s, box-shadow 0.25s;
+    padding: 0;
+    width: 100%;
+    height: 0;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    margin: 0 0 0;
 }
 
 .terminal-info {
-    color: #fff04e;
-    text-shadow: 0 0 5px rgba(255, 252, 78, 0.8);
+    color: #ffd04e;
+    text-shadow: 0 0 5px rgba(255, 214, 78, 0.8);
 }
 
 .terminal-cya {
-    font-weight: bold;
-    color: #54ff4e;
-    text-shadow: 0 0 5px rgba(87, 255, 78, 0.6);
+    color: #4e7aff;
+    text-shadow: 0 0 5px rgba(78, 119, 255, 0.6);
 }
 
 br {
@@ -54,18 +74,16 @@ div pre {
     text-shadow: 0 0 5px rgba(255, 78, 95, 0.8);
 }
 
-.top-left-1 {
-    padding: 5px;
-    width: 30%;
-    height: 45%;
-    overflow-wrap: break-word;
-    overflow-y: auto;
-    margin: 15px 0 0;
+.large-terminal_box {
+    height: 40% !important;
+    width: 30% !important;
 }
 
-@media only screen and (max-width: 905px) {
-    .terminal_box {
-        width: 100%;
-        height: 80%;
-    }
+.mobile-terminal_box {
+    height: 30% !important;
+    width: 100% !important;
+}
+
+.terminal-display {
+    display: block;
 }
