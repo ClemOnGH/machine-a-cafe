@@ -3,18 +3,21 @@ lines = [
     ["Connection established with remote host at 10.54.67.129:8080", 0.1],
     ["Attempting authorization bypass...", 1.2],
     ["Access level [ROOT] granted", 0.1],
-    ["Executing script: ./sys_diagnostics.py <br>", 0.25],
+    ["Executing script: ./sys_diagnostics.py", 0.25],
+    [""],
     ["import sys", 0.05],
-    ["from porthack.net import sequencer<br>", 0.05],
+    ["from porthack.net import sequencer", 0.05],
+    [""],
     ["def override_sequence(address):", 0.05],
     [" sequence = []", 0.05],
     ["   for i in range(0x00, 0xFF):", 0.05],
     ["     sequence.append(hex(i ^ 0x1F))", 0.05],
-    ["   return sequence<br>", 0.05],
+    ["   return sequence", 0.05],
+    [""],
     ["porthack: Memory mapping address @ 0x402A3C7B", 0.5],
     ["porthack: Applying sequence overrides...", 0.8],
     ["porthack: Loading unauthorized modules... [WARNING]", 0.05],
-    ["porthack: sequencer ready with {7} warnings", "0.5"],
+    ["porthack: sequencer ready with {7} warnings", 0.5],
 ];
 loading = [
     ["[WARN] Initializing safe-mode diagnostics...", 0.1],
@@ -71,34 +74,115 @@ loading = [
     ["<span class='terminal-cya'>Goodbye Johnny, see you on the other side.</span>", 10],
 ];
 
-function delay(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms * 1000));
-}
-
 function scrollToBottom() {
-    const scrollable = document.querySelectorAll(".terminal_box");
-    scrollable.forEach((div) => {
-        div.scrollTop = div.scrollHeight;
-    });
+    const div = document.getElementById("terminal-box");
+    if (window.matchMedia("(max-width: 905px)").matches) {
+        div.classList.remove("large-terminal_box");
+        div.classList.add("mobile-terminal_box");
+    } else {
+        div.classList.remove("mobile-terminal_box");
+        div.classList.add("large-terminal_box");
+    }
+    div.scrollTop = div.scrollHeight;
 }
 
-function displayLine(string, element) {
-    const line = string[0];
-    const pre = document.getElementById(element);
-    pre.innerHTML += `> ${line}<br>`;
-    scrollToBottom();
+function displayInit() {
+    const div = document.getElementById("terminal_title");
+    const div2 = document.getElementById("terminal-box");
+
+    setTimeout(() => {
+        if (window.matchMedia("(max-width: 905px)").matches) {
+            div2.classList.remove("large-terminal_box");
+            div2.classList.add("mobile-terminal_box");
+        } else {
+            div2.classList.remove("mobile-terminal_box");
+            div2.classList.add("large-terminal_box");
+        }
+
+        div2.style.display = "block";
+        div2.style.padding = "5px";
+        div.style.display = "block";
+        div.style.width = "100%";
+        div.style.color = "black";
+        div.style.backgroundColor = "#ff4e5f";
+        div.style.boxShadow = "0 0 5px rgba(255, 78, 95, 0.6), 0 0 30px rgba(255, 78, 95, 0.2)";
+    }, 200);
+
+    setTimeout(() => {
+        const string = "cafetiere_init.sh - v4.2.7";
+        const arr = string.split("");
+
+        let i = 0;
+        setInterval(() => {
+            if (i < arr.length) {
+                div.textContent += arr[i];
+                i++;
+            } else {
+                clearInterval();
+            }
+        }, 40);
+    }, 400);
 }
 
-async function displayAllLines(where) {
-    for (i = 0; i < lines.length; i++) {
-        displayLine(lines[i], "top-left-1-text");
-        await delay(lines[i][1]);
-    }
-    document.getElementById("top-left-1-text").textContent = "";
-    for (j = 0; j < loading.length; j++) {
-        displayLine(loading[j], "top-left-1-text");
-        await delay(loading[j][1]);
-    }
+function displayLine(string) {
+    const pre = document.getElementById("top-left-1-text");
+    pre.innerHTML += "> " + string + "<br>";
 }
-window.addEventListener("resize", scrollToBottom);
+
+function displayAllLines() {
+    const terminal = document.getElementById("top-left-1-text");
+    const box = document.getElementById("terminal-box");
+    displayInit();
+
+    setTimeout(() => {
+        window.addEventListener("resize", scrollToBottom);
+        if (window.matchMedia("(max-width: 905px)").matches) {
+            box.classList.add("mobile-terminal_box");
+        } else {
+            box.classList.add("large-terminal_box");
+        }
+
+        let i = 0;
+
+        function displayNextLine() {
+            if (i < lines.length) {
+                displayLine(lines[i][0]);
+                let delay = lines[i][1] * 1000;
+                i++;
+                scrollToBottom();
+
+                setTimeout(displayNextLine, delay);
+            }
+        }
+        displayNextLine();
+    }, 1000);
+
+    setTimeout(() => {
+        terminal.innerHTML = "";
+    }, 6000);
+
+    setTimeout(() => {
+        let i = 0;
+
+        function displayNextLine() {
+            if (i < loading.length) {
+                displayLine(loading[i][0]);
+                let delay = loading[i][1] * 1000;
+                i++;
+                scrollToBottom();
+
+                setTimeout(displayNextLine, delay);
+            }
+        }
+        displayNextLine();
+    }, 6500);
+
+    setTimeout(() => {
+        terminal.innerHTML = "";
+        box.classList.remove("mobile-terminal_box");
+        box.classList.remove("large-terminal_box");
+        box.style.border = "none";
+        box.style.boxShadow = "none";
+    }, 24000);
+}
 displayAllLines();
