@@ -11,7 +11,6 @@ const terminal = document.getElementById("actualTerminal");
 function turnOn() {
     if (coffeeMachine.isOn === false && coffeeMachine.launchButtonDisabled === false) {
         terminal.innerHTML += `> La machine est éteinte. Allumage en cours...<br>`;
-        console.log(terminal.parentElement.querySelector(".interactive-button"));
         terminal.parentElement.querySelector(".interactive-button").textContent = "ÉTEINDRE CAFETIÈRE";
         setTimeout(() => {
             terminal.innerHTML += `> La machine est allumée. Veuillez remplir le filtre avant de vous en servir.<br>`;
@@ -21,8 +20,11 @@ function turnOn() {
     } else if (coffeeMachine.launchButtonDisabled === true) {
         return;
     } else {
-        terminal.innerHTML += `> La machine est déjà allumée. <br>`;
-        coffeeMachine.launchMadCounter++;
+        terminal.innerHTML += `> La machine est déjà allumée. Éteignagation en cours...<br>`;
+        setTimeout(() => {
+            terminal.parentElement.querySelector(".interactive-button").textContent = "ALLUMER CAFETIÈRE";
+            coffeeMachine.isOn = false;
+        }, 1300)
     }
 
     if (coffeeMachine.launchMadCounter >= 5) {
@@ -33,21 +35,26 @@ function turnOn() {
 }
 
 function checkIfEmpty() {
-    if (coffeeMachine.filterFill == 0 && coffeeMachine.filterFill < 100) {
-        terminal.innerHTML += `> Le filtre est vide. Dépôt de café dans le filtre en cours...<br>`;
-        setTimeout(() => {
-            coffeeMachine.filterFill += 100;
-            terminal.innerHTML += `> Le filtre est plein. Vous pouvez lancer la machine.${coffeeMachine.filterFill}<br>`;
-        }, 1500);
-        return;
-    } else if (coffeeMachine.filterFill == 100) {
-        terminal.innerHTML += `> Le filtre est déjà plein. Merci de ne plus appuyer sur ce bouton sauf en cas de réel besoin.<br>`;
-        coffeeMachine.filterMadCounter++;
-        return;
-    } else if (coffeeMachine.filterFill == 100 && coffeeMachine.filterMadCounter > 5) {
-        terminal.innerHTML += `> C'EST PLEIN, PAS BESOIN DE LE BOURRER NON PLUS !<br>`;
-        return;
+    if (coffeeMachine.isOn === true){
+        if (coffeeMachine.filterFill == 0 && coffeeMachine.filterFill < 100) {
+            terminal.innerHTML += `> Le filtre est vide. Dépôt de café dans le filtre en cours...<br>`;
+            setTimeout(() => {
+                coffeeMachine.filterFill += 100;
+                terminal.innerHTML += `> Le filtre est plein. Vous pouvez lancer la machine.${coffeeMachine.filterFill}<br>`;
+            }, 1500);
+            return;
+        } else if (coffeeMachine.filterFill == 100) {
+            terminal.innerHTML += `> Le filtre est déjà plein. Merci de ne plus appuyer sur ce bouton sauf en cas de réel besoin.<br>`;
+            coffeeMachine.filterMadCounter++;
+            return;
+        } else if (coffeeMachine.filterFill == 100 && coffeeMachine.filterMadCounter > 5) {
+            terminal.innerHTML += `> C'EST PLEIN, PAS BESOIN DE LE BOURRER NON PLUS !<br>`;
+            return;
+        } else {
+            return;
+        }
     } else {
+        terminal.innerHTML += `> La machine est éteinte. Veuillez l'allumer avant d'intéragir avec.`
         return;
     }
 }
