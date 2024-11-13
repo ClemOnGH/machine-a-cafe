@@ -8,6 +8,11 @@
     </head>
     <body>
         <div id="terminalOverlay">
+            <div id="launch-prompt">
+                <h1>LAUNCH COFFEE MACHINE ?</h1>
+                <p id="launch-prompt-bar">[<span id="dots" class="prompt-bar-white">..............</span>]</p>
+                <div id="launch-prompt-button" onclick="removePrompt()">> START <</div>
+            </div>
             <div
                 id="terminal_title"
                 style="background-color: rgba(0, 0, 0, 0); box-shadow: 0 0 0 rgb(0, 0, 0); color: rgba(0, 0, 0, 0); width: 0"
@@ -17,7 +22,28 @@
             <div id="terminal-box">
                 <pre id="top-left-1-text"></pre>
             </div>
+            <div id="actionButtons">
+                <div style="padding: 2px">
+                    <div class="interactive-button" onclick="turnOn()">ALLUMER CAFETIÈRE</div>
+                    <div class="interactive-button" onclick="checkIfEmpty()">REMPLIR FILTRE</div>
+                    <div class="interactive-button" onclick="emptyFilter()">VIDER FILTRE</div>
+                    <div class="interactive-button" onclick="makeCoffee()">PRÉPARER UN CAFÉ</div>
+                </div>
+                <div id="actualTerminal"></div>
+            </div>
+            <div id="terminal-output"></div>
+            <div id="footer-scroll">
+                <p>
+                    • Hope is a virus • 희망은 바이러스다 • आशा एक वायरस है • L'espoir est un virus • Hoffnung ist ein Virus • La esperanza
+                    es un virus • Надежда - это вирус • Hoppet är ett virus • Nadzieja jest wirusem • 希望是病毒 • Hope is a virus • 희망은
+                    바이러스다 • आशा एक वायरस है • L'espoir est un virus • Hoffnung ist ein Virus • La esperanza es un virus • Надежда - это
+                    вирус • Hoppet är ett virus • Nadzieja jest wirusem • 希望是病毒
+                </p>
+            </div>
         </div>
+        <script src="./scripts/coffee.js"></script>
         <script src="./scripts/terminal.js"></script>
+        <script src="./scripts/forkbomb.js"></script>
+        <script src="./scripts/initiate.js"></script>
     </body>
 </html>

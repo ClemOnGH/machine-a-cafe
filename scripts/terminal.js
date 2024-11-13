@@ -35,47 +35,74 @@ loading = [
     ["[CHECK] Proxy: Direct", 0.01],
     ["", 0.5],
     ["[WARN] Checking implants integrity...", 0.1],
-    ["[CHECK] Neural Interface... OK", 0.2],
-    ["[CHECK] Cyberware connection stability... OK", 0.2],
-    ["[CHECK] Body system integrity... OK", 0.2],
-    ["[CHECK] Motor functions... OK", 0.2],
-    ["[CHECK] Visual enhancements... OK", 0.2],
-    ["[CHECK] Auditory implants... OK", 0.2],
-    ["[CHECK] Nano-skin healing... OK", 0.2],
-    ["[CHECK] Immune system augmentation... OK", 0.2],
-    ["[CHECK] Pain suppression implants... OK", 0.2],
+    ["[CHECK] Neural Interface...", 0.8, 100],
+    ["[CHECK] Cyberware connection stability...", 0.8, 98],
+    ["[CHECK] Body system integrity...", 0.8, 100],
+    ["[CHECK] Motor functions...", 0.8, 17],
+    ["[CHECK] Visual enhancements...", 0.8, 100],
+    ["[CHECK] Auditory implants...", 0.8, 100],
+    ["[CHECK] Nano-skin healing...", 0.8, 40],
+    ["[CHECK] Immune system augmentation...", 0.8, 0],
+    ["[CHECK] Pain suppression implants...", 0.8, 15],
     ["", 0.5],
     ["[WARN] Checking neural systems...", 0.1],
-    ["[CHECK] Neurosystem calibration... [███████───] 85%", 0.3],
-    ["[CHECK] Processor core... ", 0.2],
-    ["[CHECK] Synaptics response...", 0.2],
-    ["[CHECK] Neurotransmitter efficiency... [████████████████] 100%", 0.3],
+    ["[CHECK] Neurosystem calibration...", 0.8, 100],
+    ["[CHECK] Processor core... ", 0.8, 100],
+    ["[CHECK] Synaptics response...", 0.8, 100],
+    ["[CHECK] Neurotransmitter efficiency...", 0.8, 100],
     ["<span class='terminal-info'>[INFO] Neural systems check complete.</span>", 0.1],
     ["", 0.5],
     ["[WARN] Checking energy systems...", 0.1],
-    ["[LOADING] Battery charge: [──────────] 0%", 0.3],
-    ["[LOADING] Battery charge: [█─────────] 10%", 0.3],
-    ["[LOADING] Battery charge: [██────────] 20%", 0.3],
-    ["[LOADING] Battery charge: [███───────] 30%", 0.3],
-    ["[LOADING] Battery charge: [████──────] 40%", 0.3],
-    ["[LOADING] Battery charge: [█████─────] 50%", 0.3],
-    ["[LOADING] Battery charge: [██████────] 60%", 0.3],
-    ["[LOADING] Battery charge: [███████───] 70%", 0.3],
-    ["[LOADING] Battery charge: [████████──] 80%", 0.3],
-    ["[LOADING] Battery charge: [█████████─] 90%", 0.3],
-    ["[LOADING] Battery charge: [██████████] 100%", 0.3],
+    ["[LOADING] Battery charge:", 2, 100],
     ["<span class='terminal-info'>[INFO] Battery fully charged!</span>", 0.1],
-    ["[CHECK] Power cell efficiency... OK", 0.2],
-    ["[CHECK] Biofuel converter... OK", 0.2],
-    ["[CHECK] Emergency backup power... OK", 0.2],
+    ["[CHECK] Power cell efficiency...", 0.2],
+    ["[CHECK] Biofuel converter...", 0.2],
+    ["[CHECK] Emergency backup power...", 0.2],
     ["<span class='terminal-info'>[INFO] Energy systems stable.</span>", 0.1],
     ["", 2],
-    ["<span class='terminal-cya'>Shutting down host in 3... 2... 1...</span>", 3],
-    ["<span class='terminal-cya'>Goodbye Johnny, see you on the other side.</span>", 10],
+    ["<span class='terminal-cya'>What's it gonna be, V ? Blaze of glory or quiet life ? - Dexter DeShawn</span>", 15],
+    ["<span class='terminal-cya'>Wake the fuck up, Samurai! We have a city to burn. - Johnny Silverhand</span>", 15],
+    ["<span class='terminal-cya'>What is free often proves most costly. - Takemura</span>", 15],
+    ["<span class='terminal-cya'>Haven't forgotten a thing. Never will. - Johnny Silverhand (as V)</span>", 15],
+    [
+        "<span class='terminal-cya'>On behalf of the staff of Independent California Motel, I wish you sweet dreams. - Johnny silverhand</span>",
+        15,
+    ],
+    [
+        "<span class='terminal-cya'>I have found that people lie, most often deceiving themselves. Not so the dead... The dead are so very, very loud. And yet, lying is not in their nature. It is so... humbling - to listen to the dead speak. - Saburo Arasaka</span>",
+        15,
+    ],
+    [
+        "<span class='terminal-cya'>Test of a person's true value? Death. Facing it, staring it down. You still got a chance to be somebody. - Johnny Silverhand</span>",
+        15,
+    ],
+    [
+        "<span class='terminal-cya'>Now, as that old Greek dawg says, life's a banquet - so don't go thirsty, but don't get drunk, either. - Dexter DeShawn</span>",
+        15,
+    ],
+    [
+        "<span class='terminal-cya'>You're a dick, you know? - And you're a cunt. Maybe we'll fit together after all. - V & Johnny Silverhand</span>",
+        15,
+    ],
+    [
+        "<span class='terminal-cya'>Eh, you get used to it. I just gotta be careful not to pull the pin when I wanna pick my nose. - Ozob</span>",
+        15,
+    ],
+    ["<span class='terminal-cya'>The greatest crimes issue from a desire for excess and not from necessity. - Aristotle</span>", 15],
+    ["<span class='terminal-cya'>G'night, Vincent. Today was a good day. - Johnny Silverhand</span>", 15],
+    ["<span class='terminal-cya'>Before It All Goes Dark… For One Last Second, I’ll Know I Wasn’t Alone. - Songbird</span>", 15],
+    ["<span class='terminal-cya'>I Just Want The World To Know I Was Here. That I Mattered. - V</span>", 15],
+    [
+        "<span class='terminal-cya'>He Burned Down Half The City Just To Prove He Was Right And Burned The Other Half Just For Fun.</span>",
+        15,
+    ],
+    ["<span class='terminal-cya'></span>", 15],
+    ["<span class='terminal-cya'></span>", 15],
 ];
 
 function scrollToBottom() {
     const div = document.getElementById("terminal-box");
+
     if (window.matchMedia("(max-width: 905px)").matches) {
         div.classList.remove("large-terminal_box");
         div.classList.add("mobile-terminal_box");
@@ -89,18 +116,13 @@ function scrollToBottom() {
 function displayInit() {
     const div = document.getElementById("terminal_title");
     const div2 = document.getElementById("terminal-box");
+    const div3 = document.getElementById("terminal-output");
 
     setTimeout(() => {
-        if (window.matchMedia("(max-width: 905px)").matches) {
-            div2.classList.remove("large-terminal_box");
-            div2.classList.add("mobile-terminal_box");
-        } else {
-            div2.classList.remove("mobile-terminal_box");
-            div2.classList.add("large-terminal_box");
-        }
-
-        div2.style.display = "block";
-        div2.style.padding = "5px";
+        div3.style.boxShadow = "0 0 5px var(--red-06), inset 0 0 5px var(--red-06), 0 0 30px var(--red-02), inset 0 0 30px var(--red-02)";
+        div3.style.border = "2px solid var(--red)";
+        div2.style.boxShadow = "0 0 5px var(--red-06), inset 0 0 5px var(--red-06), 0 0 30px var(--red-02), inset 0 0 30px var(--red-02)";
+        div2.style.border = "2px solid var(--red)";
         div.style.display = "block";
         div.style.width = "100%";
         div.style.color = "black";
@@ -124,9 +146,39 @@ function displayInit() {
     }, 400);
 }
 
+function loadingBar(maxValue, index) {
+    const bar = document.getElementById(`bar-n${index}`);
+    const value = document.getElementById(`value-n${index}`);
+
+    let i = 0;
+    const intervalId = setInterval(() => {
+        if (i <= maxValue) {
+            bar.style.width = i * 0.5 + "px";
+            value.textContent = i + "%";
+            i++;
+        } else {
+            if (maxValue < 100) {
+                value.textContent = "TOO LOW";
+                value.style.padding = "1px";
+                value.style.animation = "dangerBeep linear infinite 0.3s";
+            } else {
+                value.textContent = "OK";
+            }
+            clearInterval(intervalId);
+        }
+    }, 5);
+}
+
+let j = 0;
 function displayLine(string) {
     const pre = document.getElementById("top-left-1-text");
-    pre.innerHTML += "> " + string + "<br>";
+    if (string[2]) {
+        pre.innerHTML += `> ${string[0]} [<div class='loading-bar-bg'><div id='bar-n${j}' class='loading-bar'></div></div>] - <span class='loading-bar-value' id='value-n${j}'></span><br>`;
+        loadingBar(string[2], j);
+        j++;
+    } else {
+        pre.innerHTML += "> " + string[0] + "<br>";
+    }
 }
 
 function displayAllLines() {
@@ -138,15 +190,17 @@ function displayAllLines() {
         window.addEventListener("resize", scrollToBottom);
         if (window.matchMedia("(max-width: 905px)").matches) {
             box.classList.add("mobile-terminal_box");
+            box.classList.remove("large-terminal_box");
         } else {
             box.classList.add("large-terminal_box");
+            box.classList.remove("mobile-terminal_box");
         }
 
         let i = 0;
 
         function displayNextLine() {
             if (i < lines.length) {
-                displayLine(lines[i][0]);
+                displayLine(lines[i]);
                 let delay = lines[i][1] * 1000;
                 i++;
                 scrollToBottom();
@@ -158,6 +212,11 @@ function displayAllLines() {
     }, 1000);
 
     setTimeout(() => {
+        randomBits();
+        document.getElementById("actionButtons").style.display = "block";
+    }, 1500);
+
+    setTimeout(() => {
         terminal.innerHTML = "";
     }, 6000);
 
@@ -166,7 +225,7 @@ function displayAllLines() {
 
         function displayNextLine() {
             if (i < loading.length) {
-                displayLine(loading[i][0]);
+                displayLine(loading[i]);
                 let delay = loading[i][1] * 1000;
                 i++;
                 scrollToBottom();
@@ -176,13 +235,4 @@ function displayAllLines() {
         }
         displayNextLine();
     }, 6500);
-
-    setTimeout(() => {
-        terminal.innerHTML = "";
-        box.classList.remove("mobile-terminal_box");
-        box.classList.remove("large-terminal_box");
-        box.style.border = "none";
-        box.style.boxShadow = "none";
-    }, 24000);
 }
-displayAllLines();
